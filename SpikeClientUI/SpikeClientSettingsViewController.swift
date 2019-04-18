@@ -12,7 +12,7 @@ import LoopKitUI
 import SpikeClient
 
 
-public class SpikeClientSettingsViewController: UITableViewController {
+public class SpikeClientSettingsViewController: UITableViewController, CGMManagerSetupViewController, CompletionNotifying {
 
     public let cgmManager: SpikeClientManager
 

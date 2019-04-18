@@ -11,7 +11,7 @@ import LoopKitUI
 import SpikeClient
 
 
-class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupViewController {
+class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupViewController, CompletionNotifying {
     var setupDelegate: CGMManagerSetupViewControllerDelegate?
 
     let cgmManager = SpikeClientManager()
