@@ -15,6 +15,8 @@ class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupVie
     var setupDelegate: CGMManagerSetupViewControllerDelegate?
 
     let cgmManager = SpikeClientManager()
+    
+    var completionDelegate: CompletionDelegate? { get set }
 
     init() {
         let authVC = AuthenticationViewController(authentication: cgmManager.spikeService)

@@ -20,6 +20,10 @@ public class SpikeClientSettingsViewController: UITableViewController, CGMManage
 
     public let allowsDeletion: Bool
 
+    var completionDelegate: CompletionDelegate? { get set }
+    
+    var setupDelegate: CGMManagerSetupViewControllerDelegate? { get set }
+    
     public init(cgmManager: SpikeClientManager, glucoseUnit: HKUnit, allowsDeletion: Bool) {
         self.cgmManager = cgmManager
         self.glucoseUnit = glucoseUnit
