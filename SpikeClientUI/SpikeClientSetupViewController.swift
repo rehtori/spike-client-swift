@@ -39,7 +39,7 @@ class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupVie
     }
 
     @objc private func cancel() {
-        setupDelegate?.setupTableViewControllerCancelButtonPressed(self)
+        setupDelegate?.cgmManagerSetupViewController(self, didSetUpCGMManager: cgmManager)
     }
 
 
