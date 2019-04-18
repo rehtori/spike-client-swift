@@ -38,6 +38,9 @@ class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupVie
         fatalError("init(coder:) has not been implemented")
     }
 
+    @objc private func cancel() {
+        setupDelegate?.setupTableViewControllerCancelButtonPressed(self)
+    }
 
 
     @objc private func save() {
