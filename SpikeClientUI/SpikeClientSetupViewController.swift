@@ -12,12 +12,12 @@ import SpikeClient
 
 
 class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupViewController, CompletionNotifying {
+    var completionDelegate: CompletionDelegate?
+    
     var setupDelegate: CGMManagerSetupViewControllerDelegate?
 
     let cgmManager = SpikeClientManager()
     
-    var completionDelegate: CompletionDelegate? { get set }
-
     init() {
         let authVC = AuthenticationViewController(authentication: cgmManager.spikeService)
 
@@ -38,9 +38,7 @@ class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupVie
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc private func cancel() {
-        setupDelegate?.cgmManagerSetupViewControllerDidCancel(self)
-    }
+
 
     @objc private func save() {
         setupDelegate?.cgmManagerSetupViewController(self, didSetUpCGMManager: cgmManager)

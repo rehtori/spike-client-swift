@@ -13,16 +13,16 @@ import SpikeClient
 
 
 public class SpikeClientSettingsViewController: UITableViewController, CGMManagerSetupViewController, CompletionNotifying {
+    public var setupDelegate: CGMManagerSetupViewControllerDelegate?
+    
+    public var completionDelegate: CompletionDelegate?
+    
 
     public let cgmManager: SpikeClientManager
 
     public let glucoseUnit: HKUnit
 
     public let allowsDeletion: Bool
-
-    var completionDelegate: CompletionDelegate? { get set }
-    
-    var setupDelegate: CGMManagerSetupViewControllerDelegate? { get set }
     
     public init(cgmManager: SpikeClientManager, glucoseUnit: HKUnit, allowsDeletion: Bool) {
         self.cgmManager = cgmManager
