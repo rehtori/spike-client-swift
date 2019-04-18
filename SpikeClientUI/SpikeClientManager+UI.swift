@@ -15,7 +15,7 @@ extension SpikeClientManager: CGMManagerUI {
         return SpikeClientSetupViewController()
     }
     
-    public func settingsViewController(for glucoseUnit: HKUnit) -> (UIViewController & CompletionNotifying)
+    public func settingsViewController(for glucoseUnit: HKUnit) -> (UIViewController & CompletionNotifying) {
         return SpikeClientSettingsViewController(cgmManager: self, glucoseUnit: glucoseUnit, allowsDeletion: true)
     }
 
