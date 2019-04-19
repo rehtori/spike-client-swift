@@ -17,7 +17,6 @@ public class SpikeClientSettingsViewController: UITableViewController, CGMManage
     
     public var completionDelegate: CompletionDelegate?
     
-
     public let cgmManager: SpikeClientManager
 
     public let glucoseUnit: HKUnit

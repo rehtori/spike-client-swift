@@ -12,10 +12,10 @@ import SpikeClient
 
 
 class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupViewController, CompletionNotifying {
-    var completionDelegate: CompletionDelegate?
-    
-    var setupDelegate: CGMManagerSetupViewControllerDelegate?
+    weak var completionDelegate: CompletionDelegate?
 
+    var setupDelegate: CGMManagerSetupViewControllerDelegate?
+    
     let cgmManager = SpikeClientManager()
     
     init() {
@@ -42,9 +42,8 @@ class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupVie
         setupDelegate?.cgmManagerSetupViewController(self, didSetUpCGMManager: cgmManager)
     }
 
-
     @objc private func save() {
         setupDelegate?.cgmManagerSetupViewController(self, didSetUpCGMManager: cgmManager)
+        completionDelegate?.completionNotifyingDidComplete(self)
     }
-
 }
