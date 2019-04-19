@@ -11,11 +11,13 @@ import LoopKitUI
 import SpikeClient
 
 
-class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupViewController {
+class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupViewController, CompletionNotifying {
+    weak var completionDelegate: CompletionDelegate?
+
     var setupDelegate: CGMManagerSetupViewControllerDelegate?
-
+    
     let cgmManager = SpikeClientManager()
-
+    
     init() {
         let authVC = AuthenticationViewController(authentication: cgmManager.spikeService)
 
@@ -37,11 +39,11 @@ class SpikeClientSetupViewController: UINavigationController, CGMManagerSetupVie
     }
 
     @objc private func cancel() {
-        setupDelegate?.cgmManagerSetupViewControllerDidCancel(self)
+        setupDelegate?.cgmManagerSetupViewController(self, didSetUpCGMManager: cgmManager)
     }
 
     @objc private func save() {
         setupDelegate?.cgmManagerSetupViewController(self, didSetUpCGMManager: cgmManager)
+        completionDelegate?.completionNotifyingDidComplete(self)
     }
-
 }

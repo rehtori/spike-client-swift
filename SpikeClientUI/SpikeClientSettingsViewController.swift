@@ -12,14 +12,17 @@ import LoopKitUI
 import SpikeClient
 
 
-public class SpikeClientSettingsViewController: UITableViewController {
-
+public class SpikeClientSettingsViewController: UITableViewController, CGMManagerSetupViewController, CompletionNotifying {
+    public var setupDelegate: CGMManagerSetupViewControllerDelegate?
+    
+    public var completionDelegate: CompletionDelegate?
+    
     public let cgmManager: SpikeClientManager
 
     public let glucoseUnit: HKUnit
 
     public let allowsDeletion: Bool
-
+    
     public init(cgmManager: SpikeClientManager, glucoseUnit: HKUnit, allowsDeletion: Bool) {
         self.cgmManager = cgmManager
         self.glucoseUnit = glucoseUnit
